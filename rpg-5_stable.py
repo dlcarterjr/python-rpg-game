@@ -33,9 +33,9 @@ class Character(object):
 class Hero(Character):
     def __init__(self):
         self.name = 'hero'
-        self.health = 10
+        self.health = 25
         self.power = 5
-        self.coins = 5
+        self.coins = 25
         self.armor = 0
         self.evade = 0
         self.grenade = False
@@ -107,7 +107,7 @@ class Medic(Character):  ## STEP 2
     def __init__(self):
         self.name = 'medic'
         self.health = 10
-        self.power = 5
+        self.power = 2
         self.bounty = 2
 
     def receive_damage(self, points):
@@ -124,7 +124,7 @@ class Shadow(Character):  ## STEP 3
     def __init__(self):
         self.name = 'shadow'
         self.health = 1
-        self.power = 5
+        self.power = 2
         self.bounty = 3
 
     def receive_damage(self, points):
@@ -136,12 +136,13 @@ class Shadow(Character):  ## STEP 3
                 print("%s is dead." % self.name)
         else:
             print(f'{self.name} deflected the damage.')
+            return
 
 class Zombie(Character):  ## STEP 4
     def __init__(self):
         self.name = 'zombie'
         self.health = 10
-        self.power = 5
+        self.power = 1
         self.bounty = 2
 
     def alive(self):  ## Zombie can't die.
@@ -301,7 +302,7 @@ class Store(object):
                 hero.buy(item)
 
 hero = Hero()  
-enemies = [Wizard(), Goblin(), Medic(), Shadow(), Zombie(), Ogre()]  
+enemies = [Wizard(), Goblin(), Medic(),Shadow(), Zombie(), Ogre()]  # 
 battle_engine = Battle()
 shopping_engine = Store()
 for enemy in enemies:
